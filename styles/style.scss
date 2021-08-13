@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+i {
+  pointer-events: none;
+}
+
 body {
   background: linear-gradient(90deg, #ecdaa7, #a6a8df, #5b97f0);
 }
@@ -25,10 +29,15 @@ form {
   align-items: center;
   input,
   button {
-    font-size: 2rem;
+    font-size: 1.75rem;
     border: none;
     padding: 0.25rem 0.5rem;
     margin: 0.5rem;
+  }
+
+  input[type="number"] {
+    width: 50px;
+    text-align: center;
   }
 
   /* Chrome, Safari, Edge, Opera | Hide input arrow*/
@@ -37,9 +46,75 @@ form {
     -webkit-appearance: none;
     margin: 0;
   }
+  /* Firefox */
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
   button {
     cursor: pointer;
     background-color: #558fbb;
     color: white;
+  }
+}
+
+section {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  div.todo {
+    width: 30vw;
+    display: flex;
+    align-items: center;
+    margin: 0.3rem 0rem;
+    transition: all 0.1s ease;
+    p {
+      background-color: white;
+      color: black;
+      padding: 0.25rem 0.5rem;
+      font-size: 1.75rem;
+    }
+
+    p.todo-text {
+      width: 50%;
+    }
+    p.todo-time {
+      width: 20%;
+      text-align: center;
+    }
+    button {
+      padding: 0.25rem 0.5rem;
+      font-size: 1.75rem;
+      border: none;
+      cursor: pointer;
+      color: white;
+    }
+
+    button.trash {
+      background-color: red;
+    }
+    button.complete {
+      background-color: rgb(138, 214, 24);
+    }
+  }
+}
+
+.done {
+  opacity: 0.5;
+  text-decoration: line-through;
+  text-decoration-thickness: 0.2rem; // 線的粗細
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes scaleDown {
+  to {
+    transform: scale(0);
   }
 }
