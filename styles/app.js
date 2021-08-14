@@ -10,6 +10,11 @@ add.addEventListener("click", (e) => {
   let month = form.children[1].value;
   let day = form.children[2].value;
 
+  if (todoText == "") {
+    alert("Please enter some text");
+    return;
+  }
+
   let todo = document.createElement("div");
   todo.classList.add("todo");
 
@@ -51,6 +56,8 @@ add.addEventListener("click", (e) => {
   todo.appendChild(trashButton);
 
   todo.style.animation = "scaleUp 0.3s forwards";
+
+  form.children[0].value = ""; // clear the text  input
 
   section.appendChild(todo);
 });
